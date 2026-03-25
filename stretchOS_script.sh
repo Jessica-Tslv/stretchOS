@@ -1,8 +1,11 @@
 #!/bin/bash
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
 
 clear
 
 # heredoc ascii booting; text to ascii art
+echo -e "${GREEN}"
 cat << "EOF"
  ____  _            _       _      ___  ____  
 / ___|| |_ _ __ ___| |_ ___| |__  / _ \/ ___| 
@@ -11,18 +14,31 @@ cat << "EOF"
 |____/ \__|_|  \___|\__\___|_| |_|\___/|____/ 
 
 EOF
+echo -e "${NC}"
 
-echo -n "stretchOS Booting"
-for i in {1..3}; do
-    echo -n "."
+booting_text="stretchOS Booting"
+dots="..."
+
+# type text
+echo -ne "${GREEN}"
+for(( i=0; i<${#booting_text}; i++)); do
+     echo -n "${booting_text:$i:1}"
+     sleep 0.05
+done
+
+# then dots slower
+for (( i=0; i<${#dots}; i++ )); do
+    echo -n "${dots:$i:1}"
     sleep 0.4
 done
+
+echo -e "${NC}"
 echo ""
 
 echo ""
 echo "⚠️  WARNING: You have been sitting too long."
-echo "🦴 Posture pestering: ACTIVE"
-echo "💧 Hydration guilt system: ENABLED"
+echo -e "🦴 Posture pestering:      ${GREEN}ACTIVE${NC}"
+echo -e "💧 Hydration guilt system: ${GREEN}ENABLED${NC}"
 echo ""
 echo "❌ Press Ctrl + C to reclaim autonomy (not recommended)"
 echo ""
@@ -33,8 +49,10 @@ messages=(
 "💧 stretchOS: Hydration check. Your cells are politely asking for water."
 "👀 stretchOS: 20-20-20 time. Look away from the screen. I know it's hard."
 "🎇 stretchOS: Take a sec to crack the neck."
+"🎇 stretchOS: Crack that back!"
 "🚶 stretchOS: Walk around for a minute. Your legs require purpose."
 "🧘 stretchOS: Stretch time. Pretend you're a well-balanced human."
+"💧 stretchOS: Drink water. Now!"
 "🦴 stretchOS: Your posture just rage-quit. Fix it."
 "🌳 stretchOS: Reality check. Look around to see if the real world still exists."
 )
@@ -46,6 +64,6 @@ do
 
     osascript -e "display notification \"$msg\" with title \"stretchOS\""
 
-    # wait 30 minutes
-    sleep 30m
+    # wait 20 minutes before next message
+    sleep 20m
 done
