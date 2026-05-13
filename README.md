@@ -2,8 +2,6 @@
 
 > _*This is somewhat similar to my [battery-monitor](https://github.com/Jessica-Tslv/battery_monitor) program, this is a shell script that runs in a Terminal window. It generates regular pop-up reminders on your screen, helping you to make healthier decisions.*_
 
-> _*It was insipired by my consistent shrimp posture and zombie focus. Dropdown for visual representation of me below.*_
-
 <details>
   <summary> What inspired this</summary>
     <img src="./assets/shrimp_posture.webp" width="400">
@@ -12,7 +10,7 @@
 <br>
 stretchOS is a lightweight Bash program that periodically reminds you to:
 
-- stand up and move 🚶‍♀️
+- stand up and move around 🚶‍♀️
 - drink water 💧
 - fix your posture 🦴
 - acknowledge reality 🌳
@@ -28,7 +26,19 @@ stretchOS is a lightweight Bash program that periodically reminds you to:
 
 ---
 
-## 🚀 Getting Started
+## Demo
+
+Running the script in the Terminal looks like this:
+
+<img src="./assets/stretchOSgif.gif" width="700" />
+
+<br>
+
+It generates pop up reminders in the form of notifications, which appear in the upper right corner of the screen:
+
+<img src="./assets/example.png" width="700">
+
+## Getting Started
 
 ### 1. Clone the repo
 
@@ -52,6 +62,18 @@ chmod +x stretchOS.sh
 ```bash
 ./stretchOS.sh
 ```
+
+---
+
+## To stop stretchOS
+
+Press:
+
+```bash
+Ctrl + C
+```
+
+(though stretchOS strongly discourages this decision)
 
 ---
 
@@ -93,23 +115,13 @@ messages=(
 )
 ```
 
----
+### Sound or no sound for notifications
 
-## To stop stretchOS
-
-Press:
+Comment or uncomment the afplay line:
 
 ```bash
-Ctrl + C
+afplay /System/Library/Sounds/Submarine.aiff
 ```
-
-(though stretchOS strongly discourages this decision)
-
----
-
-## 📸 Preview
-
-To be added
 
 ---
 

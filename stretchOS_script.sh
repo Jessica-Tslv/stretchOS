@@ -64,6 +64,9 @@ do
 
     osascript -e "display notification \"$msg\" with title \"stretchOS\""
 
+    # plays a sound alongisde the notification
+    afplay /System/Library/Sounds/Submarine.aiff
+
     # wait 20 minutes before next message
     sleep 20m
 done
